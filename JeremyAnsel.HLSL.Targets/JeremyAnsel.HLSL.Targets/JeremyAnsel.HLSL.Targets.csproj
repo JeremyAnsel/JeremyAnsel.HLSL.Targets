@@ -17,10 +17,6 @@
     <PackageProjectUrl>https://github.com/JeremyAnsel/JeremyAnsel.HLSL.Targets</PackageProjectUrl>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
-  </ItemGroup>
-
   <Target Name="PackTaskDependencies" BeforeTargets="GenerateNuspec">
     <ItemGroup>
       <_PackageFilesToExclude Include="bin\$(Configuration)\*\JeremyAnsel.HLSL.Targets.dll" />
@@ -33,8 +29,8 @@
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="JeremyAnsel.DirectX.D3DCompiler" Version="2.0.18" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.3.0" />
+    <PackageReference Include="JeremyAnsel.DirectX.D3DCompiler" Version="2.0.18" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.3.0" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
