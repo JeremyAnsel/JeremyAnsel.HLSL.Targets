@@ -1,0 +1,38 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <PropertyPageSchema Include="JeremyAnsel.HLSL.Targets.xml" />
+    <AvailableItemName Include="HLSLShader">
+      <Targets>HLSLShaderCompile</Targets>
+    </AvailableItemName>
+  </ItemGroup>
+
+  <UsingTask TaskName="HLSLShaderCompile" AssemblyFile="..\tools\netstandard2.0\JeremyAnsel.HLSL.Targets.dll" Condition="'$(MSBuildRuntimeType)' == 'Core'" />
+  <UsingTask TaskName="HLSLShaderCompile" AssemblyFile="..\tools\net472\JeremyAnsel.HLSL.Targets.dll" Condition="'$(MSBuildRuntimeType)' != 'Core'" />
+
+  <Target Name="HLSLShaderCompile" BeforeTargets="Compile">
+
+    <ItemGroup>
+      <HLSLShader>
+        <ShaderProfile Condition="'%(HLSLShader.ShaderProfile)' == ''">ps_5_0</ShaderProfile>
+        <ObjectFileOutput Condition="'%(HLSLShader.ObjectFileOutput)' == ''">$(OutputPath)$([System.IO.Path]::ChangeExtension(%(HLSLShader.Identity), '.cso'))</ObjectFileOutput>
+        <EntryPointName Condition="'%(HLSLShader.EntryPointName)' == ''">main</EntryPointName>
+        <TreatWarningAsError Condition="'%(HLSLShader.TreatWarningAsError)' == ''">true</TreatWarningAsError>
+        <OutputDisassembly Condition="'%(HLSLShader.OutputDisassembly)' == ''">false</OutputDisassembly>
+        <OutputDisassemblyHtml Condition="'%(HLSLShader.OutputDisassemblyHtml)' == ''">false</OutputDisassemblyHtml>
+      </HLSLShader>
+    </ItemGroup>
+
+    <HLSLShaderCompile Source="@(HLSLShader)"
+                          ShaderProfile="%(HLSLShader.ShaderProfile)"
+                          ObjectFileOutput="%(HLSLShader.ObjectFileOutput)"
+                          PreprocessorDefinitions="%(HLSLShader.PreprocessorDefinitions)"
+                          EntryPointName="%(HLSLShader.EntryPointName)"
+                          TreatWarningAsError="%(HLSLShader.TreatWarningAsError)"
+                          OutputDisassembly="%(HLSLShader.OutputDisassembly)"
+                          OutputDisassemblyHtml="%(HLSLShader.OutputDisassemblyHtml)"
+                          />
+
+  </Target>
+
+</Project>

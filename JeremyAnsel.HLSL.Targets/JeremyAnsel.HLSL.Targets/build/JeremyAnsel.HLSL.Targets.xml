@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ProjectSchemaDefinitions xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+  <ItemType Name="HLSLShader" DisplayName="HLSL Shader" />
+  <ContentType Name="HLSLShader" DisplayName="HLSL Shader" ItemType="HLSLShader" />
+  <FileExtension Name=".hlsl" ContentType="HLSLShader" />
+
+  <Rule Name="HLSLShader" PageTemplate="tool" DisplayName="HLSL Compiler" Order="500">
+
+    <Rule.Categories>
+      <Category Name="General" DisplayName="General" />
+    </Rule.Categories>
+
+    <Rule.DataSource>
+      <DataSource Persistence="ProjectFile" ItemType="HLSLShader" HasConfigurationCondition="false" />
+    </Rule.DataSource>
+
+    <EnumProperty Name="ShaderProfile" DisplayName="Shader Profile" Description="Sets the shader profile" Category="General">
+      <EnumValue Name="cs_5_0" DisplayName="Compute Shader 5.0" />
+      <EnumValue Name="ds_5_0" DisplayName="Domain Shader 5.0" />
+      <EnumValue Name="gs_5_0" DisplayName="Geometry Shader 5.0" />
+      <EnumValue Name="hs_5_0" DisplayName="Hull Shader 5.0" />
+      <EnumValue Name="ps_5_0" DisplayName="Pixel Shader 5.0" />
+      <EnumValue Name="vs_5_0" DisplayName="Vertex Shader 5.0" />
+      <EnumValue Name="cs_4_1" DisplayName="Compute Shader 4.1" />
+      <EnumValue Name="gs_4_1" DisplayName="Geometry Shader 4.1" />
+      <EnumValue Name="ps_4_1" DisplayName="Pixel Shader 4.1" />
+      <EnumValue Name="vs_4_1" DisplayName="Vertex Shader 4.1" />
+      <EnumValue Name="cs_4_0" DisplayName="Compute Shader 4.0" />
+      <EnumValue Name="gs_4_0" DisplayName="Geometry Shader 4.0" />
+      <EnumValue Name="ps_4_0" DisplayName="Pixel Shader 4.0" />
+      <EnumValue Name="vs_4_0" DisplayName="Vertex Shader 4.0" />
+      <EnumValue Name="ps_4_0_level_9_1" DisplayName="Pixel Shader 4.0 level 9.1" />
+      <EnumValue Name="ps_4_0_level_9_3" DisplayName="Pixel Shader 4.0 level 9.3" />
+      <EnumValue Name="vs_4_0_level_9_1" DisplayName="Vertex Shader 4.0 level 9.1" />
+      <EnumValue Name="vs_4_0_level_9_3" DisplayName="Vertex Shader 4.0 level 9.3" />
+      <EnumValue Name="ps_3_0" DisplayName="Pixel Shader 3.0" />
+      <EnumValue Name="vs_3_0" DisplayName="Vertex Shader 3.0" />
+      <EnumValue Name="ps_2_0" DisplayName="Pixel Shader 2.0" />
+      <EnumValue Name="vs_2_0" DisplayName="Vertex Shader 2.0" />
+    </EnumProperty>
+
+    <StringProperty Subtype="file" Name="ObjectFileOutput" DisplayName="Object File Output Name" Description="Sets the object file output name" Category="General" />
+
+    <StringListProperty Name="PreprocessorDefinitions" DisplayName="Preprocessor Definitions" Description="Sets the preprocessor definitions" Category="General" />
+
+    <StringProperty Name="EntryPointName" DisplayName="Entry Point Name" Description="Sets the entry point name" Category="General" />
+
+    <BoolProperty Name="TreatWarningAsError" DisplayName="Treat Warning As Error" Description="Treats warning as error" Category="General" />
+
+    <BoolProperty Name="OutputDisassembly" DisplayName="Output Disassembly Shader" Description="Outputs disassembly shader" Category="General" />
+
+    <BoolProperty Name="OutputDisassemblyHtml" DisplayName="Output Disassembly Shader in HTML" Description="Outputs disassembly shader in HTML" Category="General" />
+
+  </Rule>
+
+</ProjectSchemaDefinitions>

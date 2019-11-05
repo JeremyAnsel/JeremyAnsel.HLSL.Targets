@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <Version>1.0.0</Version>
+    <Description>JeremyAnsel.HLSL.Targets adds MSBuild support for HLSL compilation.</Description>
+    <Authors>Jérémy Ansel</Authors>
+    <Company>Jérémy Ansel</Company>
+    <Copyright>Copyright © 2019 Jérémy Ansel</Copyright>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageTags>DirectX D3D Compiler HLSL Shader</PackageTags>
+    <PackageProjectUrl>https://github.com/JeremyAnsel/JeremyAnsel.HLSL.Targets</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Update="@(PackageReference)" PrivateAssets="All" />
+  </ItemGroup>
+
+  <Target Name="PackTaskDependencies" BeforeTargets="GenerateNuspec">
+    <ItemGroup>
+      <_PackageFilesToExclude Include="bin\$(Configuration)\*\JeremyAnsel.HLSL.Targets.dll" />
+      <_PackageFiles Include="bin\$(Configuration)\*\*.dll">
+        <PackagePath>tools\%(RecursiveDir)</PackagePath>
+        <Visible>false</Visible>
+        <BuildAction>Content</BuildAction>
+      </_PackageFiles>
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="JeremyAnsel.DirectX.D3DCompiler" Version="2.0.18" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="16.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="build\*.*" PackagePath="build" />
+  </ItemGroup>
+
+</Project>
