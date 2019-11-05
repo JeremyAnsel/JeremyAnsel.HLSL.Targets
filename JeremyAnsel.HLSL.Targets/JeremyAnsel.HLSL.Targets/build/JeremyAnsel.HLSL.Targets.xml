@@ -8,14 +8,19 @@
   <Rule Name="HLSLShader" PageTemplate="tool" DisplayName="HLSL Compiler" Order="500">
 
     <Rule.Categories>
-      <Category Name="General" DisplayName="General" />
+      <Category Name="Advanced" DisplayName="Advanced" />
+      <Category Name="HLSL" DisplayName="HLSL" />
     </Rule.Categories>
 
     <Rule.DataSource>
       <DataSource Persistence="ProjectFile" ItemType="HLSLShader" HasConfigurationCondition="false" />
     </Rule.DataSource>
 
-    <EnumProperty Name="ShaderProfile" DisplayName="Shader Profile" Description="Sets the shader profile" Category="General">
+    <DynamicEnumProperty Name="{}{ItemType}" DisplayName="Build Action"  Category="Advanced"
+                         Description="How the file relates to the build and deployment processes."
+                         EnumProvider="ItemTypes" />
+
+    <EnumProperty Name="ShaderProfile" DisplayName="Shader Profile" Description="Sets the shader profile" Category="HLSL">
       <EnumValue Name="cs_5_0" DisplayName="Compute Shader 5.0" />
       <EnumValue Name="ds_5_0" DisplayName="Domain Shader 5.0" />
       <EnumValue Name="gs_5_0" DisplayName="Geometry Shader 5.0" />
@@ -40,17 +45,17 @@
       <EnumValue Name="vs_2_0" DisplayName="Vertex Shader 2.0" />
     </EnumProperty>
 
-    <StringProperty Subtype="file" Name="ObjectFileOutput" DisplayName="Object File Output Name" Description="Sets the object file output name" Category="General" />
+    <StringProperty Subtype="file" Name="ObjectFileOutput" DisplayName="Object File Output Name" Description="Sets the object file output name" Category="HLSL" />
 
-    <StringListProperty Name="PreprocessorDefinitions" DisplayName="Preprocessor Definitions" Description="Sets the preprocessor definitions" Category="General" />
+    <StringListProperty Name="PreprocessorDefinitions" DisplayName="Preprocessor Definitions" Description="Sets the preprocessor definitions" Category="HLSL" />
 
-    <StringProperty Name="EntryPointName" DisplayName="Entry Point Name" Description="Sets the entry point name" Category="General" />
+    <StringProperty Name="EntryPointName" DisplayName="Entry Point Name" Description="Sets the entry point name" Category="HLSL" />
 
-    <BoolProperty Name="TreatWarningAsError" DisplayName="Treat Warning As Error" Description="Treats warning as error" Category="General" />
+    <BoolProperty Name="TreatWarningAsError" DisplayName="Treat Warning As Error" Description="Treats warning as error" Category="HLSL" />
 
-    <BoolProperty Name="OutputDisassembly" DisplayName="Output Disassembly Shader" Description="Outputs disassembly shader" Category="General" />
+    <BoolProperty Name="OutputDisassembly" DisplayName="Output Disassembly Shader" Description="Outputs disassembly shader" Category="HLSL" />
 
-    <BoolProperty Name="OutputDisassemblyHtml" DisplayName="Output Disassembly Shader in HTML" Description="Outputs disassembly shader in HTML" Category="General" />
+    <BoolProperty Name="OutputDisassemblyHtml" DisplayName="Output Disassembly Shader in HTML" Description="Outputs disassembly shader in HTML" Category="HLSL" />
 
   </Rule>
 

@@ -1,16 +1,18 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <ItemGroup>
-    <PropertyPageSchema Include="JeremyAnsel.HLSL.Targets.xml" />
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml">
+      <Context>File;BrowseObject</Context>
+    </PropertyPageSchema>
     <AvailableItemName Include="HLSLShader">
-      <Targets>HLSLShaderCompile</Targets>
+      <Targets>HLSLShader</Targets>
     </AvailableItemName>
   </ItemGroup>
 
   <UsingTask TaskName="HLSLShaderCompile" AssemblyFile="..\tools\netstandard2.0\JeremyAnsel.HLSL.Targets.dll" Condition="'$(MSBuildRuntimeType)' == 'Core'" />
   <UsingTask TaskName="HLSLShaderCompile" AssemblyFile="..\tools\net472\JeremyAnsel.HLSL.Targets.dll" Condition="'$(MSBuildRuntimeType)' != 'Core'" />
 
-  <Target Name="HLSLShaderCompile" BeforeTargets="Compile">
+  <Target Name="HLSLShader" BeforeTargets="Compile">
 
     <ItemGroup>
       <HLSLShader>
