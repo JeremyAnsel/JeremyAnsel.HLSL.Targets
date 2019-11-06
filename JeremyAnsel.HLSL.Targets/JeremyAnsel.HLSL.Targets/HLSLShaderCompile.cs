@@ -29,6 +29,11 @@ namespace JeremyAnsel.HLSL.Targets
 
         public override bool Execute()
         {
+            if (string.IsNullOrEmpty(ShaderProfile))
+            {
+                return true;
+            }
+
             foreach (ITaskItem item in Source)
             {
                 Log.LogMessage(MessageImportance.Normal, $"{item.ItemSpec} -> {ObjectFileOutput}");

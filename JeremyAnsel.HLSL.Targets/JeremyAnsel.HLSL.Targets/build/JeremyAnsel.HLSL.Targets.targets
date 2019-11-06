@@ -16,7 +16,7 @@
 
     <ItemGroup>
       <HLSLShader>
-        <ShaderProfile Condition="'%(HLSLShader.ShaderProfile)' == ''">ps_5_0</ShaderProfile>
+        <!--<ShaderProfile Condition="'%(HLSLShader.ShaderProfile)' == ''">ps_5_0</ShaderProfile>-->
         <ObjectFileOutput Condition="'%(HLSLShader.ObjectFileOutput)' == ''">$(OutputPath)$([System.IO.Path]::ChangeExtension(%(HLSLShader.Identity), '.cso'))</ObjectFileOutput>
         <EntryPointName Condition="'%(HLSLShader.EntryPointName)' == ''">main</EntryPointName>
         <TreatWarningAsError Condition="'%(HLSLShader.TreatWarningAsError)' == ''">true</TreatWarningAsError>
