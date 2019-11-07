@@ -299,6 +299,7 @@ float4 main( float4 pos : POSITION ) : SV_POSITION
 
             if (code != null)
             {
+                Directory.CreateDirectory(Path.GetDirectoryName(ObjectFileOutput));
                 File.WriteAllBytes(ObjectFileOutput, code);
             }
 
