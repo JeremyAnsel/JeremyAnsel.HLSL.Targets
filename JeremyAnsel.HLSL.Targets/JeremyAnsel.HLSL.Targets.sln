@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29424.173
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyAnsel.HLSL.Targets", "JeremyAnsel.HLSL.Targets\JeremyAnsel.HLSL.Targets.csproj", "{DE6C2DC4-C1BA-499F-AC71-0EBEAE19CEF4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeremyAnsel.HLSL.Targets", "JeremyAnsel.HLSL.Targets\JeremyAnsel.HLSL.Targets.csproj", "{59356608-033D-4F81-8BEE-6AA871EF992A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DE6C2DC4-C1BA-499F-AC71-0EBEAE19CEF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DE6C2DC4-C1BA-499F-AC71-0EBEAE19CEF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DE6C2DC4-C1BA-499F-AC71-0EBEAE19CEF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DE6C2DC4-C1BA-499F-AC71-0EBEAE19CEF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59356608-033D-4F81-8BEE-6AA871EF992A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59356608-033D-4F81-8BEE-6AA871EF992A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59356608-033D-4F81-8BEE-6AA871EF992A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59356608-033D-4F81-8BEE-6AA871EF992A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {77EFA15C-964A-422F-A3CE-1F6B6F508DEA}
+		SolutionGuid = {38466D08-91C5-4684-9912-B7878B6197A7}
 	EndGlobalSection
 EndGlobal
