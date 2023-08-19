@@ -12,7 +12,7 @@
   <UsingTask TaskName="HLSLShaderCompile" AssemblyFile="..\tools\netstandard2.0\JeremyAnsel.HLSL.Targets.dll" Condition="'$(MSBuildRuntimeType)' == 'Core'" />
   <UsingTask TaskName="HLSLShaderCompile" AssemblyFile="..\tools\net48\JeremyAnsel.HLSL.Targets.dll" Condition="'$(MSBuildRuntimeType)' != 'Core'" />
 
-  <Target Name="HLSLShader" BeforeTargets="BeforeBuild;Compile">
+  <Target Name="HLSLShader" BeforeTargets="BeforeBuild">
 
     <ItemGroup>
       <HLSLShader>
