@@ -47,6 +47,8 @@
 
     <StringProperty Subtype="file" Name="ObjectFileOutput" DisplayName="Object File Output Name" Description="Sets the object file output name" Category="HLSL" />
 
+    <BoolProperty Name="Debug" DisplayName="Inserts Debug Information" Description="Inserts debug information into the output code" Category="HLSL" />
+
     <StringListProperty Name="PreprocessorDefinitions" DisplayName="Preprocessor Definitions" Description="Sets the preprocessor definitions" Category="HLSL" />
 
     <StringProperty Name="EntryPointName" DisplayName="Entry Point Name" Description="Sets the entry point name" Category="HLSL" />

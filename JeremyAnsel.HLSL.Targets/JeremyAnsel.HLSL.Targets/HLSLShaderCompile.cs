@@ -15,6 +15,8 @@ namespace JeremyAnsel.HLSL.Targets
 
         public string ShaderProfile { get; set; }
 
+        public bool Debug { get; set; }
+
         public string ObjectFileOutput { get; set; }
 
         public string[] PreprocessorDefinitions { get; set; }
@@ -254,7 +256,7 @@ float4 main( float4 pos : POSITION ) : SV_POSITION
 
             try
             {
-                D3DCompileOptions options = D3DCompileOptions.OptimizationLevel3;
+                D3DCompileOptions options = Debug ? D3DCompileOptions.Debug : D3DCompileOptions.OptimizationLevel3;
 
                 if (TreatWarningAsError)
                 {
