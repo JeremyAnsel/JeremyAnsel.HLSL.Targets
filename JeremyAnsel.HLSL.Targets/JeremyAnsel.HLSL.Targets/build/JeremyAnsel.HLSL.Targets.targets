@@ -39,4 +39,21 @@
 
   </Target>
 
+  <PropertyGroup>
+    <_GenerateAppxManifestDependsOn>
+      ModifyAppXPackageShaderCso;
+      $(_GenerateAppxManifestDependsOn)
+    </_GenerateAppxManifestDependsOn>
+  </PropertyGroup>
+
+  <Target Name="ModifyAppXPackageShaderCso" Condition="'$(BuildingProject)' == 'true'">
+    <ItemGroup>
+      <Message Importance="high" Text="Modifying AppxPackagePayload Add shader cso files" />
+      <ShaderCsoFiles Include="$(ProjectDir)$(OutputPath)\**\*.cso" />
+      <AppxPackagePayload Include="%(ShaderCsoFiles.Identity)">
+        <TargetPath>%(RecursiveDir)%(Filename)%(Extension)</TargetPath>
+      </AppxPackagePayload>
+    </ItemGroup>
+  </Target>
+
 </Project>
