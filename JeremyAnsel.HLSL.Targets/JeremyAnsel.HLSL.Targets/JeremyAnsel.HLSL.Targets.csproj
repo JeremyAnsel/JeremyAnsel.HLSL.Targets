@@ -63,8 +63,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="JeremyAnsel.DirectX.D3DCompiler" Version="3.0.31" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.10.4" PrivateAssets="All" />
+    <PackageReference Include="JeremyAnsel.DirectX.D3DCompiler" Version="3.0.33" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.11.4" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
