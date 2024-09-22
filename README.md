@@ -1,7 +1,7 @@
 # JeremyAnsel.HLSL.Targets
 
 [![Build status](https://ci.appveyor.com/api/projects/status/hs5p3wsrvaj87kib/branch/master?svg=true)](https://ci.appveyor.com/project/JeremyAnsel/jeremyansel-hlsl-targets/branch/master)
-[![NuGet Version](https://buildstats.info/nuget/JeremyAnsel.HLSL.Targets)](https://www.nuget.org/packages/JeremyAnsel.HLSL.Targets)
+[![NuGet Version](https://img.shields.io/nuget/v/JeremyAnsel.HLSL.Targets)](https://www.nuget.org/packages/JeremyAnsel.HLSL.Targets)
 ![License](https://img.shields.io/github/license/JeremyAnsel/JeremyAnsel.HLSL.Targets)
 
 JeremyAnsel.HLSL.Targets adds MSBuild support for HLSL compilation.
