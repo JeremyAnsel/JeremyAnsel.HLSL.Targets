@@ -12,13 +12,26 @@
   <UsingTask TaskName="HLSLShaderCompile" AssemblyFile="..\tools\netstandard2.0\JeremyAnsel.HLSL.Targets.dll" Condition="'$(MSBuildRuntimeType)' == 'Core'" />
   <UsingTask TaskName="HLSLShaderCompile" AssemblyFile="..\tools\net48\JeremyAnsel.HLSL.Targets.dll" Condition="'$(MSBuildRuntimeType)' != 'Core'" />
 
-  <Target Name="HLSLShader" BeforeTargets="BeforeBuild;Compile">
+  <!-- The ObjectFileOutput default is applied at evaluation time (not inside the target) so that
+       the target's Inputs/Outputs below are fully defined for MSBuild's incremental build check. -->
+  <ItemGroup>
+    <HLSLShader Update="@(HLSLShader)">
+      <ObjectFileOutput Condition="'%(HLSLShader.ObjectFileOutput)' == ''">$(OutputPath)$([System.IO.Path]::ChangeExtension(%(HLSLShader.Identity), '.cso'))</ObjectFileOutput>
+    </HLSLShader>
+  </ItemGroup>
+
+  <!-- Inputs/Outputs make the shader compilation incremental: the target is skipped when every
+       .cso is newer than its .hlsl source and the project file (which holds the shader metadata,
+       e.g. ShaderProfile). Without them the shaders were recompiled on every build, rewriting the
+       .cso files and making projects that embed them permanently out of date. -->
+  <Target Name="HLSLShader" BeforeTargets="BeforeBuild;Compile"
+          Inputs="@(HLSLShader);$(MSBuildProjectFullPath)"
+          Outputs="@(HLSLShader->'%(ObjectFileOutput)')">
 
     <ItemGroup>
       <HLSLShader>
         <!--<ShaderProfile Condition="'%(HLSLShader.ShaderProfile)' == ''">ps_5_0</ShaderProfile>-->
         <Debug Condition="'%(HLSLShader.Debug)' == ''">false</Debug>
-        <ObjectFileOutput Condition="'%(HLSLShader.ObjectFileOutput)' == ''">$(OutputPath)$([System.IO.Path]::ChangeExtension(%(HLSLShader.Identity), '.cso'))</ObjectFileOutput>
         <EntryPointName Condition="'%(HLSLShader.EntryPointName)' == ''">main</EntryPointName>
         <TreatWarningAsError Condition="'%(HLSLShader.TreatWarningAsError)' == ''">true</TreatWarningAsError>
         <OutputDisassembly Condition="'%(HLSLShader.OutputDisassembly)' == ''">false</OutputDisassembly>
