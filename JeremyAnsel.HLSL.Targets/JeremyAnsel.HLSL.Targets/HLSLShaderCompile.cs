@@ -1,10 +1,7 @@
 ﻿using JeremyAnsel.DirectX.D3DCompiler;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
+using System.Runtime.InteropServices;
 
 namespace JeremyAnsel.HLSL.Targets
 {
@@ -251,7 +248,7 @@ float4 main( float4 pos : POSITION ) : SV_POSITION
                 }
             }
 
-            byte[] code;
+            byte[] code = null;
             string errorMessages = null;
 
             try
@@ -263,14 +260,18 @@ float4 main( float4 pos : POSITION ) : SV_POSITION
                     options |= D3DCompileOptions.WarningsAreErrors;
                 }
 
-                D3DCompile.CompileFromFile(
+                using D3DCompileResult result = D3DCompile.CompileFromFile(
                     fullPath,
                     defines,
                     EntryPointName,
                     ShaderProfile,
-                    options,
-                    out code,
-                    out errorMessages);
+                    options);
+
+                code = result.GetData();
+            }
+            catch (ExternalException ex)
+            {
+                errorMessages = ex.Message;
             }
             catch (Exception ex)
             {

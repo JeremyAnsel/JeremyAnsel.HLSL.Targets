@@ -25,6 +25,12 @@
     <PackageTags>DirectX D3D Compiler HLSL Shader</PackageTags>
     <PackageProjectUrl>https://github.com/JeremyAnsel/JeremyAnsel.HLSL.Targets</PackageProjectUrl>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net8.0'))">true</IsAotCompatible>
+    <VerifyReferenceAotCompatibility>true</VerifyReferenceAotCompatibility>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors />
+    <NoWarn>CA1416;CS1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -63,7 +69,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="JeremyAnsel.DirectX.D3DCompiler" Version="3.0.47" PrivateAssets="All" />
+    <PackageReference Include="JeremyAnsel.DirectX.D3DCompiler" Version="4.0.61" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.14.28" PrivateAssets="All" />
   </ItemGroup>
 
